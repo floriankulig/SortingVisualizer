@@ -36,11 +36,6 @@ class Gui:
         turtle.update()
         self.screen.mainloop()
 
-    def swap_bars(self, bar1_idx, bar2_idx):
-        x1, x2 = self.bars[bar1_idx].xcor(), self.bars[bar2_idx].xcor()
-        self.bars[bar1_idx].goto(x2, 0)
-        self.bars[bar2_idx].goto(x1, 0)
-
     def visualize_sorted_array(self):
         # visualize that array is sorted
         for i, bar in enumerate(self.bars):

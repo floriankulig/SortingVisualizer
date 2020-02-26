@@ -5,7 +5,6 @@ def main():
     gui = Gui()
     gui.new_array()
     gui.merge_sort()
-    # print(gui.bars)
     gui.run()
 
 
