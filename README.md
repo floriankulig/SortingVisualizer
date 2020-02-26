@@ -11,7 +11,7 @@ Download: https://www.python.org/downloads/
 
 ## ENG
 
-This Python-Program visualizes multiple different sortingalgorithms.
+This Python-Program visualizes multiple different sorting algorithms.
 At the moment only one algorithm is implemented.
 More will follow soon.
 
