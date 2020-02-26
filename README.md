@@ -6,7 +6,7 @@ Dieses Python-Programm dient zur Veranschaulichung verschiedener Sortier-Algorit
 Zur Zeit ist nur ein Algorithmus (Merge-Sort) implementiert. Weitere folgen schnellstmöglich.
 
 Das Programm wird durch Ausführen der 'main.py'-Datei gestartet.
-Dazu wird ein Python-Interpreter benötigt.
+Hierzu wird ein Python-Interpreter benötigt.
 Download: https://www.python.org/downloads/
 
 ## ENG
