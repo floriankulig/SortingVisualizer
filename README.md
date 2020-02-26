@@ -12,7 +12,7 @@ Download: https://www.python.org/downloads/
 ## ENG
 
 This Python-Program visualizes multiple different sorting algorithms.
-At the moment only one algorithm is implemented.
+At the moment only one algorithm (merge-sort) is implemented.
 More will follow soon.
 
 The program gets executed by running the 'main.py'-file.
