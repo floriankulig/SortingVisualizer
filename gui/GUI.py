@@ -1,6 +1,8 @@
 import turtle
 from sorts.merge_sort import merge_sort_animations
 import random as rd
+import time
+
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
 SECONDARY_COLOR = "#ac1207"  # red
@@ -77,7 +79,7 @@ class Gui:
                 self.bars[bar_two_idx].color(color)
             else:
                 # ... or their new height
-                idx, new_height = animations[i]
+                idx, new_height, comp_value = animations[i]
                 self.bars[idx].value = new_height
                 self.bars[idx].shapesize(
                     stretch_wid=new_height/10, stretch_len=0.3)
@@ -87,7 +89,8 @@ class Gui:
                 if last_merge:
                     self.bars[idx].color(LAST_MERGE_COLOR)
 
-            # we don't update the screen every iteration to save performance
+            # we don't update the screen every iteration to
+            # save performance and animation time
             if i % ANIMATION_SPEED == 0:
                 turtle.update()
 
