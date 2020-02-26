@@ -1,7 +1,6 @@
 import turtle
 from sorts.merge_sort import merge_sort_animations
 import random as rd
-import time
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
 SECONDARY_COLOR = "#ac1207"  # red
