@@ -98,4 +98,4 @@ class Gui:
         self.visualize_sorted_array()
 
     def quicksort(self):
-        pass
+        quicksort_animations()
