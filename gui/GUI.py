@@ -88,8 +88,8 @@ class Gui:
                 if last_merge:
                     self.bars[idx].color(LAST_MERGE_COLOR)
 
-            # we don't update the screen every iteration to
-            # save performance and animation time
+            # we don't update the screen every iteration
+            # to save performance and animation time
             if i % ANIMATION_SPEED == 0:
                 turtle.update()
             # time.sleep(0.5)
