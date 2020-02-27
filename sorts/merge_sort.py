@@ -33,14 +33,12 @@ def actual_merge(array,
     while i <= mid and j <= end_idx:
         # Append for color change
         animations.append([i, j])
-
+        animations.append([i, j])
         if helper_array[i] <= helper_array[j]:
-            animations.append([i, j])
             animations.append([k, helper_array[i]])
             array[k] = helper_array[i]
             i += 1
         else:
-            animations.append([i, j])
             animations.append([k, helper_array[j]])
             array[k] = helper_array[j]
             j += 1
