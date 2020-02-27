@@ -1,5 +1,6 @@
 import turtle
 from sorts.merge_sort import merge_sort_animations
+from sorts.quick_sort import quicksort_animations
 import random as rd
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
@@ -95,3 +96,6 @@ class Gui:
             # time.sleep(0.5)
 
         self.visualize_sorted_array()
+
+    def quicksort(self):
+        pass
