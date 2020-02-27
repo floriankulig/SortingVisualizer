@@ -36,12 +36,12 @@ def actual_merge(array,
 
         if helper_array[i] <= helper_array[j]:
             animations.append([i, j])
-            animations.append([k, helper_array[i], mid])
+            animations.append([k, helper_array[i]])
             array[k] = helper_array[i]
             i += 1
         else:
             animations.append([i, j])
-            animations.append([k, helper_array[j], mid])
+            animations.append([k, helper_array[j]])
             array[k] = helper_array[j]
             j += 1
         k += 1
@@ -51,7 +51,7 @@ def actual_merge(array,
         animations.append([i, i])
         animations.append([i, i])
 
-        animations.append([k, helper_array[i], mid])
+        animations.append([k, helper_array[i]])
         array[k] = helper_array[i]
         i += 1
         k += 1
@@ -61,7 +61,7 @@ def actual_merge(array,
         animations.append([j, j])
         animations.append([j, j])
 
-        animations.append([k, helper_array[j], mid])
+        animations.append([k, helper_array[j]])
         array[k] = helper_array[j]
         j += 1
         k += 1
