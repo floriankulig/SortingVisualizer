@@ -38,7 +38,7 @@ class Gui:
 
     def visualize_sorted_array(self):
         # visualize that array is sorted
-        for i, bar in enumerate(self.bars):
+        for bar in self.bars:
             bar.color(FINAL_COLOR)
         turtle.update()
 
