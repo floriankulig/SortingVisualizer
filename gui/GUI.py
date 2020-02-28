@@ -56,8 +56,6 @@ class Gui:
             bar.penup()
             bar.goto(self.start_posX + (i*self.bar_padding), 400-bar.value)
 
-        return self.bars
-
     def merge_sort(self):
         animations = merge_sort_animations(self.array)
         for i in range(len(animations)):
