@@ -15,6 +15,7 @@ def quickSort(array, low, high):
     if low < high:
         # partition index to split array
         part_idx = partition(array, low, high)
+        # part_idx not included since it's already at right place
         quickSort(array, low, part_idx-1)
         quickSort(array, part_idx+1, high)
 
