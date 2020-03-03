@@ -42,6 +42,10 @@ class Gui:
             bar.color(FINAL_COLOR)
         turtle.update()
 
+    def checkSort(self, array):
+        if sorted(self.array) == array:
+            return True
+
     def new_array(self):
         i = 0
         self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
@@ -97,3 +101,5 @@ class Gui:
 
     def quicksort(self):
         print(quickSort(self.array, 0, len(self.array)-1))
+        if self.checkSort(quickSort(self.array, 0, len(self.array)-1)):
+            print("array sorted succesfully")
