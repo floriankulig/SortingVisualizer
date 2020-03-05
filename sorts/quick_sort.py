@@ -6,27 +6,37 @@ def quick_sort_animations(array):
     return animations
 
 
-def make_partition(array, low, high, animations):
-    i = (low-1)
-    pivot = array[high]
+def make_partition(array, start_idx, end_idx, animations):
+    # quicksort with first element as pivot element
+    pivot = array[start_idx]
+    low = start_idx + 1
+    high = end_idx
 
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i += 1
-            animations.append([i, j])
-            animations.append([i, j])
-            array[i], array[j] = array[j], array[i]
+    while True:
 
-    array[i+1], array[high] = array[high], array[i+1]
-    return (i+1)
+        while low <= high and array[high] >= pivot:
+            high -= 1
+
+        while low <= high and array[low] <= pivot:
+            low += 1
+
+        if low < high:
+            array[low], array[high] = array[high], array[low]
+        else:
+            break
+
+    
+    array[start_idx], array[high] = array[high], array[start_idx]
+
+    
+    return high
 
 
-def quick_sort(array, low, high, animations):
-    if low < high:
+def quick_sort(array, start_idx, end_idx, animations):
+    if start_idx < end_idx:
         # partition index to split array
-        part_idx = make_partition(array, low, high, animations)
+        part_idx = make_partition(array, start_idx, end_idx, animations)
         # part_idx not included since it's already at right place
-        quick_sort(array, low, part_idx-1, animations)
-        quick_sort(array, part_idx+1, high, animations)
-
+        quick_sort(array, start_idx, part_idx-1, animations)
+        quick_sort(array, part_idx+1, end_idx, animations)
     return animations
