@@ -35,7 +35,8 @@ def make_partition(array, start_idx, end_idx, animations):
     array[start_idx], array[high] = array[high], array[start_idx]
 
     '''return high element (now where pivot is) to recursively split array
-    in "quick_sort" function'''
+    in "quick_sort" function
+    element with index of high is now at its right spot'''
     return high
 
 
