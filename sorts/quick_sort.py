@@ -22,7 +22,7 @@ def make_partition(array, start_idx, end_idx, animations):
         while low <= high and array[low] <= pivot:
             low += 1
 
-        ''' swap low and high element if didn't surpass eachother
+        ''' swap low and high element if didn't bypass eachother
             (smaller element than pivot will be left and vice versa)'''
         if low < high:
             array[low], array[high] = array[high], array[low]
