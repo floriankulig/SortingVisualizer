@@ -59,6 +59,7 @@ class Gui:
                 stretch_wid=bar.value/10, stretch_len=0.3, outline=0)
             bar.penup()
             bar.goto(self.start_posX + (i*self.bar_padding), 400-bar.value)
+        turtle.update()
 
     def merge_sort(self):
         animations = merge_sort_animations(self.array)
