@@ -100,17 +100,5 @@ class Gui:
         self.visualize_sorted_array()
 
     def quicksort(self):
-        # print(quickSort(self.array, 0, len(self.array)-1))
-        # if self.checkSort(quickSort(self.array, 0, len(self.array)-1)):
-        #     print("array sorted succesfully")
-        animations = quick_sort_animations(self.array)
-        for i in range(len(animations)):
-            bar_one_idx, bar_two_idx = animations[i]
-            if i % 2 == 1:
-                bar_one_idx, bar_two_idx = animations[i]
-                self.bars[bar_one_idx].color(SECONDARY_COLOR)
-                self.bars[bar_two_idx].color(SECONDARY_COLOR)
-            elif i % 2 == 0:
-                self.bars[bar_one_idx].color(PRIMARY_COLOR)
-                self.bars[bar_two_idx].color(PRIMARY_COLOR)
-            turtle.update()
+        if self.checkSort(quick_sort_animations(self.array, 0, len(self.array)-1)):
+            print("Array sorted succesfully!")
