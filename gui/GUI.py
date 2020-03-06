@@ -14,6 +14,7 @@ ANIMATION_SPEED = 3
 
 
 class Bar(turtle.Turtle):
+    '''value is for correct alignment calculation with top'''
     value = 0
 
     def __repr__(self):
@@ -101,5 +102,17 @@ class Gui:
         self.visualize_sorted_array()
 
     def quicksort(self):
-        if self.checkSort(quick_sort_animations(self.array, 0, len(self.array)-1)):
-            print("Array sorted succesfully!")
+        # if self.checkSort(quick_sort_animations(
+        #         self.array, 0, len(self.array)-1)):
+        #     print("Array sorted succesfully!")
+        animations = quick_sort_animations(self.array)
+        for i in range(len(animations)):
+            idx, new_height = animations[i]
+            self.bars[idx].value = new_height
+            self.bars[idx].shapesize(
+                stretch_wid=new_height/10, stretch_len=0.3)
+            # align bar again with top since it has new value
+            self.bars[idx].goto(
+                self.bars[idx].xcor(), 400-self.bars[idx].value)
+            # self.bars[idx].color(LAST_MERGE_COLOR)
+            turtle.update()
