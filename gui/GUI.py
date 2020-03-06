@@ -33,6 +33,20 @@ class Gui:
         self.bar_padding = 10
         self.start_posX = -500  # where the bars start visually
 
+        # display bars for the first time
+        self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
+        for i, bar in enumerate(self.bars):
+            value = self.array[i]
+            bar.value = value
+            bar.shape("square")
+            bar.color(PRIMARY_COLOR)
+            bar.speed(0)
+            bar.shapesize(
+                stretch_wid=bar.value/10, stretch_len=0.3, outline=0)
+            bar.penup()
+            bar.goto(self.start_posX + (i*self.bar_padding), 400-bar.value)
+        turtle.update()
+
     def run(self):
         turtle.update()
         self.screen.mainloop()
@@ -48,7 +62,6 @@ class Gui:
             return True
 
     def new_array(self):
-        i = 0
         self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
         for i, bar in enumerate(self.bars):
             value = self.array[i]
@@ -60,7 +73,7 @@ class Gui:
                 stretch_wid=bar.value/10, stretch_len=0.3, outline=0)
             bar.penup()
             bar.goto(self.start_posX + (i*self.bar_padding), 400-bar.value)
-        turtle.update()
+            turtle.update()
 
     def merge_sort(self):
         animations = merge_sort_animations(self.array)

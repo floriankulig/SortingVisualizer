@@ -4,7 +4,6 @@ import time
 
 def main():
     gui = Gui()
-    gui.new_array()
     time.sleep(3)
     gui.merge_sort()
     time.sleep(2)
