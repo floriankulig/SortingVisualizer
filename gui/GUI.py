@@ -116,3 +116,4 @@ class Gui:
                 self.bars[idx].xcor(), 400-self.bars[idx].value)
             # self.bars[idx].color(LAST_MERGE_COLOR)
             turtle.update()
+        self.visualize_sorted_array()
