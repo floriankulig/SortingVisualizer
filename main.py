@@ -7,7 +7,10 @@ def main():
     gui.new_array()
     time.sleep(3)
     gui.merge_sort()
-    # gui.quicksort()
+    time.sleep(2)
+    gui.new_array()
+    time.sleep(3)
+    gui.quicksort()
     gui.run()
 
 
