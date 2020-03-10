@@ -15,23 +15,22 @@ def make_partition(array, start_idx, end_idx, animations):
     while True:
         # iterate through array reversed until element is smaller than pivot
         while low <= high and array[high] >= pivot:
+            # append both indices to get them their new values
+            animations.append([low, array[low], high, array[high]])
             high -= 1
 
         # iterate through array until element is bigger than pivot
         while low <= high and array[low] <= pivot:
+            # append both indices to get them their new values
+            animations.append([low, array[low], high, array[high]])
             low += 1
 
         ''' swap low and high element if didn't bypass eachother
             (smaller element than pivot will be left and vice versa)'''
         if low < high:
             array[low], array[high] = array[high], array[low]
-            # append for color change (make clear which values we're swapping)
-            animations.append([low, high])
             # append both indices to get them their new values
             animations.append([low, array[low], high, array[high]])
-            # append second time to revert color
-            animations.append([low, high])
-
         else:
             break
 
@@ -39,12 +38,8 @@ def make_partition(array, start_idx, end_idx, animations):
     left of pivot is smaller and elements to the right are bigger than
     pivot'''
     array[start_idx], array[high] = array[high], array[start_idx]
-    # append for color change (make clear which values we're swapping)
-    animations.append([start_idx, high])
     # append both indices to get them their new values
-    animations.append([high, array[high], start_idx, array[start_idx]])
-    # append second time to revert color
-    animations.append([start_idx, high])
+    animations.append([start_idx, array[start_idx], high, array[high]])
 
     '''return high element (now where pivot is) to recursively split array
     in "quick_sort" function
