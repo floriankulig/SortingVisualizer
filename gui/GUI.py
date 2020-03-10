@@ -121,5 +121,4 @@ class Gui:
         self.visualize_sorted_array()
 
     def quicksort(self):
-        animations = quick_sort_animations(self.array)
-        self.visualize_sorted_array()
+        pass
