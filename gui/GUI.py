@@ -2,12 +2,13 @@ import turtle
 from sorts.merge_sort import merge_sort_animations
 from sorts.quick_sort import quick_sort_animations
 import random as rd
+import time
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
 SECONDARY_COLOR = "#ac1207"  # red
 LAST_MERGE_COLOR = "#7f2d97"  # purple
 FINAL_COLOR = "#08a110"  # green
-ARRAY_SIZE = 100
+ARRAY_SIZE = 10
 # higher ANIMATION_SPEED to make animations faster (has to be int)
 # minimum is 1; default is 3
 ANIMATION_SPEED = 3
@@ -86,7 +87,12 @@ class Gui:
                 bar_one_idx, bar_two_idx = animations[i]
                 # Check if color has to be reset
                 if i % 3 == 0:
-                    color = SECONDARY_COLOR
+                    # check if values are in wrong order (color red if so)
+                    if self.bars[bar_one_idx].value > self.bars[
+                            bar_two_idx].value:
+                        color = SECONDARY_COLOR
+                    else:
+                        color = FINAL_COLOR
                 else:
                     color = PRIMARY_COLOR
                 # Style the bars with new color
@@ -112,24 +118,10 @@ class Gui:
             # to save performance and animation time
             if i % ANIMATION_SPEED == 0:
                 turtle.update()
-            # time.sleep(0.5)
+            time.sleep(0.5)
 
         self.visualize_sorted_array()
 
     def quicksort(self):
-        # if self.checkSort(quick_sort_animations(
-        #         self.array, 0, len(self.array)-1)):
-        #     print("Array sorted succesfully!")
         animations = quick_sort_animations(self.array)
-        for i in range(len(animations)):
-            # Swap bars
-            idx, new_height = animations[i]
-            self.bars[idx].value = new_height
-            self.bars[idx].shapesize(
-                stretch_wid=new_height/10, stretch_len=0.3)
-            # align bar again with top since it has new value
-            self.bars[idx].goto(
-                self.bars[idx].xcor(), 400-self.bars[idx].value)
-            # self.bars[idx].color(LAST_MERGE_COLOR)
-            turtle.update()
         self.visualize_sorted_array()
