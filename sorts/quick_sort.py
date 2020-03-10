@@ -15,18 +15,24 @@ def make_partition(array, start_idx, end_idx, animations):
     while True:
         # iterate through array reversed until element is smaller than pivot
         while low <= high and array[high] >= pivot:
+            animations.append([low, high])
+            animations.append([low, high])
             high -= 1
 
         # iterate through array until element is bigger than pivot
         while low <= high and array[low] <= pivot:
+            animations.append([low, high])
+            animations.append([low, high])
             low += 1
 
         ''' swap low and high element if didn't bypass eachother
             (smaller element than pivot will be left and vice versa)'''
         if low < high:
             array[low], array[high] = array[high], array[low]
+            animations.append([low, high])
             animations.append([low, array[low]])
             animations.append([high, array[high]])
+            animations.append([low, high])
         else:
             break
 
@@ -34,8 +40,10 @@ def make_partition(array, start_idx, end_idx, animations):
     left of pivot is smaller and elements to the right are bigger than
     pivot'''
     array[start_idx], array[high] = array[high], array[start_idx]
+    animations.append([start_idx, high])
     animations.append([high, array[high]])
     animations.append([start_idx, array[start_idx]])
+    animations.append([start_idx, high])
 
     '''return high element (now where pivot is) to recursively split array
     in "quick_sort" function
