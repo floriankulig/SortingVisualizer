@@ -15,13 +15,17 @@ def make_partition(array, start_idx, end_idx, animations):
     while True:
         # iterate through array reversed until element is smaller than pivot
         while low <= high and array[high] >= pivot:
+            # append for color change
             animations.append([low, high])
+            # append second time to revert color
             animations.append([low, high])
             high -= 1
 
         # iterate through array until element is bigger than pivot
         while low <= high and array[low] <= pivot:
+            # append for color change
             animations.append([low, high])
+            # append second time to revert color
             animations.append([low, high])
             low += 1
 
@@ -29,9 +33,12 @@ def make_partition(array, start_idx, end_idx, animations):
             (smaller element than pivot will be left and vice versa)'''
         if low < high:
             array[low], array[high] = array[high], array[low]
+            # append for color change (make clear which values we're swapping)
             animations.append([low, high])
+            # append both indices to get them their new values
             animations.append([low, array[low]])
             animations.append([high, array[high]])
+            # append second time to revert color
             animations.append([low, high])
         else:
             break
@@ -40,14 +47,19 @@ def make_partition(array, start_idx, end_idx, animations):
     left of pivot is smaller and elements to the right are bigger than
     pivot'''
     array[start_idx], array[high] = array[high], array[start_idx]
+    # append for color change (make clear which values we're swapping)
     animations.append([start_idx, high])
+    # append both indices to get them their new values
     animations.append([high, array[high]])
     animations.append([start_idx, array[start_idx]])
+    # append second time to revert color
     animations.append([start_idx, high])
 
     '''return high element (now where pivot is) to recursively split array
     in "quick_sort" function
-    element with index of high is now at its right spot'''
+    element with index of high is now at its right spot
+    append it to animations list to color it final'''
+    animations.append([high, True])
     return high
 
 
