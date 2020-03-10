@@ -15,18 +15,10 @@ def make_partition(array, start_idx, end_idx, animations):
     while True:
         # iterate through array reversed until element is smaller than pivot
         while low <= high and array[high] >= pivot:
-            # append for color change
-            animations.append([low, high, True])
-            # append second time to revert color
-            animations.append([low, high, True])
             high -= 1
 
         # iterate through array until element is bigger than pivot
         while low <= high and array[low] <= pivot:
-            # append for color change
-            animations.append([low, high, True])
-            # append second time to revert color
-            animations.append([low, high, True])
             low += 1
 
         ''' swap low and high element if didn't bypass eachother
@@ -34,12 +26,12 @@ def make_partition(array, start_idx, end_idx, animations):
         if low < high:
             array[low], array[high] = array[high], array[low]
             # append for color change (make clear which values we're swapping)
-            animations.append([low, high, True])
+            animations.append([low, high])
             # append both indices to get them their new values
-            animations.append([low, array[low], False])
-            animations.append([high, array[high], False])
+            animations.append([low, array[low], high, array[high]])
             # append second time to revert color
-            animations.append([low, high, True])
+            animations.append([low, high])
+
         else:
             break
 
@@ -48,18 +40,16 @@ def make_partition(array, start_idx, end_idx, animations):
     pivot'''
     array[start_idx], array[high] = array[high], array[start_idx]
     # append for color change (make clear which values we're swapping)
-    animations.append([start_idx, high, True])
+    animations.append([start_idx, high])
     # append both indices to get them their new values
-    animations.append([high, array[high], False])
-    animations.append([start_idx, array[start_idx], False])
+    animations.append([high, array[high], start_idx, array[start_idx]])
     # append second time to revert color
-    animations.append([start_idx, high, True])
+    animations.append([start_idx, high])
 
     '''return high element (now where pivot is) to recursively split array
     in "quick_sort" function
     element with index of high is now at its right spot
-    append it to animations list to color it final'''
-    animations.append([high, None, True])
+    append it to animations list to apply a final color'''
     return high
 
 
