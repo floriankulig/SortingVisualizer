@@ -5,6 +5,7 @@ import random as rd
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
 SECONDARY_COLOR = "#ac1207"  # red
+TERTIARY_COLOR = "#dddd37"
 LAST_MERGE_COLOR = "#7f2d97"  # purple
 FINAL_COLOR = "#08a110"  # green
 ARRAY_SIZE = 100
@@ -124,28 +125,38 @@ class Gui:
         animations = quick_sort_animations(self.array)
         for i in range(len(animations)):
             idx1, height1, idx2, height2 = animations[i]
+            special_anim = height1 == 0 and height2 == 0
 
-            # color both bars
-            color = FINAL_COLOR if height1 <= height2 else SECONDARY_COLOR
-            self.bars[idx1].color(color)
-            self.bars[idx2].color(color)
-            # Style both bars
-            self.bars[idx1].value = height1
-            self.bars[idx2].value = height2
-            self.bars[idx1].shapesize(
-                stretch_wid=height1/10, stretch_len=0.3)
-            self.bars[idx2].shapesize(
-                stretch_wid=height2/10, stretch_len=0.3)
-            # align bars again with top since it has new value
-            self.bars[idx1].goto(
-                self.bars[idx1].xcor(), 400-self.bars[idx1].value)
-            self.bars[idx2].goto(
-                self.bars[idx2].xcor(), 400-self.bars[idx2].value)
+            if not special_anim:
+                # color both bars
+                color = FINAL_COLOR if height1 <= height2 else SECONDARY_COLOR
+                self.bars[idx1].color(color)
+                self.bars[idx2].color(color)
+                # Style both bars
+                self.bars[idx1].value = height1
+                self.bars[idx2].value = height2
+                self.bars[idx1].shapesize(
+                    stretch_wid=height1/10, stretch_len=0.3)
+                self.bars[idx2].shapesize(
+                    stretch_wid=height2/10, stretch_len=0.3)
+                # align bars again with top since it has new value
+                self.bars[idx1].goto(
+                    self.bars[idx1].xcor(), 400-self.bars[idx1].value)
+                self.bars[idx2].goto(
+                    self.bars[idx2].xcor(), 400-self.bars[idx2].value)
 
-            # update already here in order to see the color change
-            if i % ANIMATION_SPEED == 0:
-                turtle.update()
+                # update already here in order to see the color change
+                if i % ANIMATION_SPEED == 0:
+                    turtle.update()
 
-            # revert color of the bars
-            self.bars[idx1].color(PRIMARY_COLOR)
-            self.bars[idx2].color(PRIMARY_COLOR)
+                # revert color of the bars
+                self.bars[idx1].color(PRIMARY_COLOR)
+                self.bars[idx2].color(PRIMARY_COLOR)
+            else:
+                # revert pivot color and mark corresponding value purple
+                if not idx1 == idx2:
+                    self.bars[idx2].color(LAST_MERGE_COLOR)
+
+                if i % ANIMATION_SPEED == 0:
+                    turtle.update()
+        self.visualize_sorted_array()
