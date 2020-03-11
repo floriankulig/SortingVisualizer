@@ -9,19 +9,20 @@ def quick_sort_animations(array):
 def make_partition(array, start_idx, end_idx, animations):
     # quicksort with first element as pivot element
     pivot = array[start_idx]
+    animations.append([start_idx, 0, start_idx, 0])
     low = start_idx + 1
     high = end_idx
 
     while True:
         # iterate through array reversed until element is smaller than pivot
         while low <= high and array[high] >= pivot:
-            # append both indices to get them their new values
+            # append both indices to color them accordingly
             animations.append([low, array[low], high, array[high]])
             high -= 1
 
         # iterate through array until element is bigger than pivot
         while low <= high and array[low] <= pivot:
-            # append both indices to get them their new values
+            # append both indices to color them accordingly
             animations.append([low, array[low], high, array[high]])
             low += 1
 
@@ -43,8 +44,9 @@ def make_partition(array, start_idx, end_idx, animations):
 
     '''return high element (now where pivot is) to recursively split array
     in "quick_sort" function
-    element with index of high is now at its right spot
-    append it to animations list to apply a final color'''
+    element with index of high is now at its right spot'''
+
+    animations.append([start_idx, 0, high, 0])
     return high
 
 
