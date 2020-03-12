@@ -9,7 +9,6 @@ def quick_sort_animations(array):
 def make_partition(array, start_idx, end_idx, animations):
     # quicksort with first element as pivot element
     pivot = array[start_idx]
-    animations.append([start_idx, 0, start_idx, 0])
     low = start_idx + 1
     high = end_idx
 
@@ -46,7 +45,6 @@ def make_partition(array, start_idx, end_idx, animations):
     in "quick_sort" function
     element with index of high is now at its right spot'''
 
-    animations.append([start_idx, 0, high, 0])
     return high
 
 
