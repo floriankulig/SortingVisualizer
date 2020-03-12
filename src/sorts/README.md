@@ -15,7 +15,7 @@ In diesem Sorting-Visualizer werden die vier bekanntesten Sortieralgorithmen imp
 - ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
 - weitere Informationen unter: https://de.wikipedia.org/wiki/Mergesort
 
-#### Im Code
+#### Im Code:
 
 - Wir teilen die Nummerliste rekursiv immer weiter in jeweils zwei untergeordnete Listen, bis die Liste nur noch ein Element beinhaltet.
 
@@ -70,7 +70,7 @@ This project will include visualizations of the four most well known algorithms:
 - is a sorting algorithm that is based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance
 - more information: https://en.wikipedia.org/wiki/Mergesort
 
-#### Im Code
+#### In the code:
 
 - We divide the array of numbers recursively into two subarrays until only one element in the array is left.
 
