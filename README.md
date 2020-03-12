@@ -8,7 +8,7 @@ Beachten Sie, dass bei ausführen des Programmes direkt Merge-Sort ausgeführt w
 
 Das Programm wird durch Ausführen der 'main.py'-Datei gestartet.
 Hierzu wird ein Python-Interpreter benötigt.
-Download: https://www.python.org/downloads/
+<a href="https://www.python.org/downloads/" target="_blank">Download</a
 
 ## ENG
 
@@ -20,4 +20,4 @@ A window with different algorithms to choose from will follow when enough algori
 
 The program gets executed by running the 'main.py'-file.
 A Python interpreter is required for this.
-Download: https://www.python.org/downloads/
+<a href="https://www.python.org/downloads/" target="_blank">Download</a
