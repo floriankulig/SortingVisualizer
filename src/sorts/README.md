@@ -13,7 +13,7 @@ In diesem Sorting-Visualizer werden die vier bekanntesten Sortieralgorithmen imp
 
 - hat eine Performance-Notation von O(n log n)
 - ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
-- weitere [Informationen](https://de.wikipedia.org/wiki/Mergesort)
+- weitere [Informationen](https://de.wikipedia.org/wiki/Mergesort){:target="\_blank"}
 
 #### Im Code:
 
@@ -68,7 +68,7 @@ This project will include visualizations of the four most well known algorithms:
 
 - has a Big O Notation of O(n log n)
 - is a sorting algorithm that is based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance
-- more [information](https://en.wikipedia.org/wiki/Mergesort)
+- more [information](https://en.wikipedia.org/wiki/Mergesort){:target="\_blank"}
 
 #### In the code:
 
