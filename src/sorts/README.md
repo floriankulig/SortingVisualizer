@@ -11,7 +11,7 @@ In diesem Sorting-Visualizer werden die vier bekanntesten Sortieralgorithmen imp
 
 ### Mergesort
 
-- hat eine Performance-Notation von O(n log n)
+- hat eine Big O (Performance) Notation von O(n log n)
 - ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
 - weitere [Informationen](https://de.wikipedia.org/wiki/Mergesort)
 
@@ -53,6 +53,56 @@ while j <= end_idx:
     array[k] = helper_array[j]
     j += 1
     k += 1
+```
+
+### Quicksort
+
+- hat eine durchschnittliche Big O (Performance) Notation von O(n log n), im schlechtesten Fall aber O(n²)
+- ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
+- weitere [Informationen](https://de.wikipedia.org/wiki/Quicksort)
+
+#### Im Code:
+
+- Wir führen den eigentlichen Algorithmus in der Liste durch; danach wird der Prozess jeweils mit der linken und rechten Hälfte rekursiv wiederholt.
+
+```python
+part_idx = make_partition(array, start_idx, end_idx)
+quick_sort(array, start_idx, part_idx-1)
+quick_sort(array, part_idx+1, end_idx)
+```
+
+- In dieser Version des Quicksort nehmen wir das erste Element als Pivot.
+
+```python
+pivot = array[start_idx]
+```
+
+- Wir iterieren rückwärts durch die Liste bis sich die beiden Vergleichs-Indexe überschnitten haben oder der größere Index (high) ein Element an seiner Stelle hat, das kleiner als das Pivot ist.
+
+```python
+while low <= high and array[high] >= pivot:
+    high -= 1
+```
+
+- Wir iterieren durch die Liste bis sich die beiden Vergleichs-Indexe überschnitten haben oder der kleiner Index (low) ein Element an seiner Stelle hat, das größer als das Pivot ist.
+
+```python
+while low <= high and array[low] <= pivot:
+    low += 1
+```
+
+- Wenn die beide Indexe sich noch nicht überschnitten haben, tauschen wir deren Werte.
+
+```python
+if low < high:
+    array[low], array[high] = array[high], array[low]
+```
+
+- Anschließend tauschen wir das Pivot-Element und der größeren Index high. Dies hat zur Folge, dass alle Werte links des Pivot-Elements kleiner und alle rechts des Pivot-Elements größer als es selbst sind.Anschließend geben wir den Index des Pivot-Elements zurück, den wir für die Rekursion benötigen.
+
+```python
+array[start_idx], array[high] = array[high], array[start_idx]
+return high
 ```
 
 ## ENG
