@@ -1,4 +1,6 @@
 import turtle
+from tkinter import Tk, Canvas, Button
+from tkinter.ttk import Combobox
 from sorts.merge_sort import merge_sort_animations
 from sorts.quick_sort import quick_sort_animations
 import random as rd
@@ -31,8 +33,12 @@ class Gui:
         self.screen.tracer(0, 0)
         self.array = list()
         self.bars = [Bar() for i in range(ARRAY_SIZE)]
+        self.algorithms = ['Mergesort', 'Quicksort']
         self.bar_padding = 10
         self.start_posX = -500  # where the bars start visually
+        self.is_visualizing = False  # if algorithm is visualized
+
+        self.ui_window()
 
         # display bars for the first time
         self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
@@ -52,11 +58,47 @@ class Gui:
         turtle.update()
         self.screen.mainloop()
 
+    # this function returns the users choice
+    def ui_window(self):
+        # make checkbox window for user to choose from different algorithms
+        self.menu = Tk()
+        self.menu.title("Choose an algorithm!")
+        self.menu.geometry('300x200')
+        btn = Button(self.menu, text='Neue Liste generieren!',
+                     command=self.new_array)
+        visualizer = Button(self.menu, text='Visualisieren!',
+                            command=self.process_user_input)  # implement choice to processUserInput function
+        self.selections = Combobox(self.menu)
+        self.selections['values'] = self.algorithms
+        btn.pack(pady=15, padx=15)
+        self.selections.pack(padx=15)
+        visualizer.pack(padx=15, pady=40)
+
+    def process_user_input(self):
+        value = self.selections.get()
+        self.menu.destroy()
+        if value is None:
+            self.ui_window()
+        elif value in self.algorithms:
+            self.algorithm_on_choice(value)
+
+    def algorithm_on_choice(self, value):
+        if value == 'Mergesort':
+            self.mergesort()
+        elif value == 'Quicksort':
+            self.quicksort()
+        elif value == 'Bubblesort':
+            self.bubblesort()
+        elif value == 'Heapsort':
+            self.heapsort()
+
+    # logic for algorithms
     def visualize_sorted_array(self):
         # visualize that array is sorted
         for bar in self.bars:
             bar.color(FINAL_COLOR)
         turtle.update()
+        self.ui_window()
 
     def checkSort(self, array):
         return True if sorted(self.array) == array else False
@@ -77,7 +119,8 @@ class Gui:
                 turtle.update()
         turtle.update()
 
-    def merge_sort(self):
+    def mergesort(self):
+        self.is_visualizing = True
         animations = merge_sort_animations(self.array)
         for i in range(len(animations)):
             color_change = True if not i % 3 == 2 else False
@@ -119,8 +162,10 @@ class Gui:
                 turtle.update()
 
         self.visualize_sorted_array()
+        self.is_visualizing = False
 
     def quicksort(self):
+        self.is_visualizing = True
         animations = quick_sort_animations(self.array)
         for i in range(len(animations)):
             idx1, height1, idx2, height2 = animations[i]
@@ -150,3 +195,4 @@ class Gui:
             self.bars[idx1].color(PRIMARY_COLOR)
             self.bars[idx2].color(PRIMARY_COLOR)
         self.visualize_sorted_array()
+        self.is_visualizing = False
