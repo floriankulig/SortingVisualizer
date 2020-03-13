@@ -69,17 +69,18 @@ class Gui:
                             command=self.process_user_input)
         self.selections = Combobox(self.menu)
         self.selections['values'] = self.algorithms
+        self.selections.current(0)
         btn.pack(pady=15, padx=15)
         self.selections.pack(padx=15)
         visualizer.pack(padx=15, pady=40)
 
     def process_user_input(self):
         value = self.selections.get()
+        self.menu.destroy()
         if value is None:
             self.ui_window()
         elif value in self.algorithms:
             self.algorithm_on_choice(value)
-        self.menu.destroy()
 
     def algorithm_on_choice(self, value):
         if value == 'Mergesort':
