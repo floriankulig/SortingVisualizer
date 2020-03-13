@@ -1,5 +1,5 @@
 import turtle
-from tkinter import Tk, Canvas, Button
+from tkinter import Tk, Button
 from tkinter.ttk import Combobox
 from sorts.merge_sort import merge_sort_animations
 from sorts.quick_sort import quick_sort_animations
@@ -58,7 +58,6 @@ class Gui:
         turtle.update()
         self.screen.mainloop()
 
-    # this function returns the users choice
     def ui_window(self):
         # make checkbox window for user to choose from different algorithms
         self.menu = Tk()
@@ -67,7 +66,7 @@ class Gui:
         btn = Button(self.menu, text='Neue Liste generieren!',
                      command=self.new_array)
         visualizer = Button(self.menu, text='Visualisieren!',
-                            command=self.process_user_input)  # implement choice to processUserInput function
+                            command=self.process_user_input)
         self.selections = Combobox(self.menu)
         self.selections['values'] = self.algorithms
         btn.pack(pady=15, padx=15)
@@ -76,11 +75,11 @@ class Gui:
 
     def process_user_input(self):
         value = self.selections.get()
-        self.menu.destroy()
         if value is None:
             self.ui_window()
         elif value in self.algorithms:
             self.algorithm_on_choice(value)
+        self.menu.destroy()
 
     def algorithm_on_choice(self, value):
         if value == 'Mergesort':
@@ -93,11 +92,12 @@ class Gui:
             self.heapsort()
 
     # logic for algorithms
-    def visualize_sorted_array(self):
+    def sort_finish(self):
         # visualize that array is sorted
         for bar in self.bars:
             bar.color(FINAL_COLOR)
         turtle.update()
+        self.is_visualizing = False
         self.ui_window()
 
     def checkSort(self, array):
@@ -161,8 +161,7 @@ class Gui:
             if i % ANIMATION_SPEED == 0:
                 turtle.update()
 
-        self.visualize_sorted_array()
-        self.is_visualizing = False
+        self.sort_finish()
 
     def quicksort(self):
         self.is_visualizing = True
@@ -194,5 +193,4 @@ class Gui:
             # revert color of the bars
             self.bars[idx1].color(PRIMARY_COLOR)
             self.bars[idx2].color(PRIMARY_COLOR)
-        self.visualize_sorted_array()
-        self.is_visualizing = False
+        self.sort_finish()

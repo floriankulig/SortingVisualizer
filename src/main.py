@@ -1,5 +1,4 @@
 from gui.GUI import Gui
-import time
 
 
 def main():
