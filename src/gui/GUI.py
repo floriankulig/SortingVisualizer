@@ -36,7 +36,6 @@ class Gui:
         self.algorithms = ['Mergesort', 'Quicksort']
         self.bar_padding = 10
         self.start_posX = -500  # where the bars start visually
-        self.is_visualizing = False  # if algorithm is visualized
 
         self.ui_window()
 
@@ -61,7 +60,7 @@ class Gui:
     def ui_window(self):
         # make checkbox window for user to choose from different algorithms
         self.menu = Tk()
-        self.menu.title("Choose an algorithm!")
+        self.menu.title("Algorithmus wählen!")
         self.menu.geometry('300x200')
         btn = Button(self.menu, text='Neue Liste generieren!',
                      command=self.new_array)
@@ -98,7 +97,6 @@ class Gui:
         for bar in self.bars:
             bar.color(FINAL_COLOR)
         turtle.update()
-        self.is_visualizing = False
         self.ui_window()
 
     def checkSort(self, array):
@@ -121,7 +119,6 @@ class Gui:
         turtle.update()
 
     def mergesort(self):
-        self.is_visualizing = True
         animations = merge_sort_animations(self.array)
         for i in range(len(animations)):
             color_change = True if not i % 3 == 2 else False
@@ -165,7 +162,6 @@ class Gui:
         self.sort_finish()
 
     def quicksort(self):
-        self.is_visualizing = True
         animations = quick_sort_animations(self.array)
         for i in range(len(animations)):
             idx1, height1, idx2, height2 = animations[i]
