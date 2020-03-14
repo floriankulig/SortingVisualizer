@@ -3,6 +3,7 @@ from tkinter import Tk, Button
 from tkinter.ttk import Combobox
 from sorts.merge_sort import merge_sort_animations
 from sorts.quick_sort import quick_sort_animations
+from sorts.bubble_sort import bubble_sort_animations
 import random as rd
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
@@ -33,7 +34,7 @@ class Gui:
         self.screen.tracer(0, 0)
         self.array = list()
         self.bars = [Bar() for i in range(ARRAY_SIZE)]
-        self.algorithms = ['Mergesort', 'Quicksort']
+        self.algorithms = ['Mergesort', 'Quicksort', 'Bubblesort']
         self.bar_padding = 10
         self.start_posX = -500  # where the bars start visually
 
@@ -190,4 +191,39 @@ class Gui:
             # revert color of the bars
             self.bars[idx1].color(PRIMARY_COLOR)
             self.bars[idx2].color(PRIMARY_COLOR)
+        self.sort_finish()
+
+    def bubblesort(self):
+        animations = bubble_sort_animations(self.array)
+        for i in range(len(animations)):
+            idx1, height1, idx2, height2 = animations[i]
+            bar_sorted = height1 == 0 and height2 == 0 and idx1 == idx2
+            if not bar_sorted:
+                # color both bars
+                color = FINAL_COLOR if height1 <= height2 else SECONDARY_COLOR
+                self.bars[idx1].color(color)
+                self.bars[idx2].color(color)
+                # Style both bars
+                self.bars[idx1].value = height1
+                self.bars[idx2].value = height2
+                # give bars new height
+                self.bars[idx1].shapesize(
+                    stretch_wid=height1/10, stretch_len=0.3)
+                self.bars[idx2].shapesize(
+                    stretch_wid=height2/10, stretch_len=0.3)
+                # align bars again with top since it has new value
+                self.bars[idx1].goto(
+                    self.bars[idx1].xcor(), 400-self.bars[idx1].value)
+                self.bars[idx2].goto(
+                    self.bars[idx2].xcor(), 400-self.bars[idx2].value)
+
+                # update already here in order to see the color change
+                if i % ANIMATION_SPEED == 0:
+                    turtle.update()
+
+                # revert color of the bars
+                self.bars[idx1].color(PRIMARY_COLOR)
+                self.bars[idx2].color(PRIMARY_COLOR)
+            else:
+                self.bars[idx1].color(LAST_MERGE_COLOR)
         self.sort_finish()
