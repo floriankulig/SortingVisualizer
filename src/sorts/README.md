@@ -159,3 +159,53 @@ while j <= end_idx:
     j += 1
     k += 1
 ```
+
+### Quicksort
+
+- has an average Big O Notation of O(n log n), in the worst case it is O(n²)
+- is a sorting algorithm based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance
+- weitere [Informationen](https://en.wikipedia.org/wiki/Quicksort)
+
+#### In the code:
+
+- We perform the actual algorithm; after that we repeat the process recursively with the left and right half until there's only one element left in the array.
+
+```python
+part_idx = make_partition(array, start_idx, end_idx)
+quick_sort(array, start_idx, part_idx-1)
+quick_sort(array, part_idx+1, end_idx)
+```
+
+- In this version of the quicksort, we pick the first element of the given array as the pivot
+
+```python
+pivot = array[start_idx]
+```
+
+- We iterate through the array backwards until the both indices which we are comparing surpassed eachother or until the bigger index (high) has an element at its position, which is smaller than the pivot.
+
+```python
+while low <= high and array[high] >= pivot:
+    high -= 1
+```
+
+- We iterate through the array until the both indices which we are comparing surpassed eachother or until the smaller index (low) has an element at its position, which is bigger than the pivot.
+
+```python
+while low <= high and array[low] <= pivot:
+    low += 1
+```
+
+- If the two indices didn't bypass eachother, we swap them.
+
+```python
+if low < high:
+    array[low], array[high] = array[high], array[low]
+```
+
+- After that, we swap the pivot element and the bigger index. This guarantuees that every element left of the pivot is smaller than itself and every element to the right is bigger. Then, we return the bigger index(now where the pivot is), which we need for the recursion.
+
+```python
+array[start_idx], array[high] = array[high], array[start_idx]
+return high
+```
