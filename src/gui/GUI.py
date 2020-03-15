@@ -91,8 +91,6 @@ class Gui:
             self.quicksort()
         elif value == 'Bubblesort':
             self.bubblesort()
-        elif value == 'Heapsort':
-            self.heapsort()
 
     def sort_finish(self):
         # visualize that array is sorted
