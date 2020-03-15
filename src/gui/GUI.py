@@ -37,11 +37,12 @@ class Gui:
         self.algorithms = ['Mergesort', 'Quicksort', 'Bubblesort']
         self.bar_padding = 10
         self.start_posX = -500  # where the bars start visually
-
+        self.random_bars = False
         self.ui_window()
 
         # display bars for the first time
         self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
+        self.random_bars = True
         for i, bar in enumerate(self.bars):
             value = self.array[i]
             bar.value = value
@@ -53,6 +54,7 @@ class Gui:
             bar.penup()
             bar.goto(self.start_posX + (i*self.bar_padding), 400-bar.value)
         turtle.update()
+        self.random_bars = False
 
     def run(self):
         turtle.update()
@@ -77,7 +79,7 @@ class Gui:
     def process_user_input(self):
         value = self.selections.get()
         self.menu.destroy()
-        if value is None:
+        if self.random_bars:
             self.ui_window()
         elif value in self.algorithms:
             self.algorithm_on_choice(value)
@@ -92,7 +94,6 @@ class Gui:
         elif value == 'Heapsort':
             self.heapsort()
 
-    # logic for algorithms
     def sort_finish(self):
         # visualize that array is sorted
         for bar in self.bars:
@@ -100,10 +101,12 @@ class Gui:
         turtle.update()
         self.ui_window()
 
+    # small unit test for algorithms
     def checkSort(self, array):
         return True if sorted(self.array) == array else False
 
     def new_array(self):
+        self.random_bars = True
         self.array = [rd.randint(10, 390) for j in range(ARRAY_SIZE)]
         for i, bar in enumerate(self.bars):
             value = self.array[i]
@@ -118,6 +121,7 @@ class Gui:
             if i % 2 == 0:
                 turtle.update()
         turtle.update()
+        self.random_bars = False
 
     def mergesort(self):
         animations = merge_sort_animations(self.array)
