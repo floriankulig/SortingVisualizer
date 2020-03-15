@@ -1,6 +1,6 @@
 # Sorting Algorithms
 
-[English](https://github.com/floriankulig/SortingVisualizer#eng)
+[English](https://github.com/floriankulig/SortingVisualizer/src/sorts#eng)
 
 ## DE
 
