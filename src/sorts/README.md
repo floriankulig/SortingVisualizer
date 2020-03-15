@@ -2,12 +2,11 @@
 
 ## DE
 
-In diesem Sorting-Visualizer werden die vier bekanntesten Sortieralgorithmen implementiert werden:
+In diesem Sorting-Visualizer sind die bekanntesten Sortieralgorithmen implementiert:
 
 1. Mergesort
 2. Quicksort
 3. Bubblesort
-4. Heapsort
 
 ### Mergesort
 
@@ -107,12 +106,11 @@ return high
 
 ## ENG
 
-This project will include visualizations of the four most well known algorithms:
+This project includes visualizations of the most well known algorithms:
 
 1. Mergesort
 2. Quicksort
 3. Bubblesort
-4. Heapsort
 
 ### Mergesort
 
