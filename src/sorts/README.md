@@ -1,5 +1,7 @@
 # Sorting Algorithms
 
+[English](https://github.com/floriankulig/SortingVisualizer#eng)
+
 ## DE
 
 In diesem Sorting-Visualizer sind die bekanntesten Sortieralgorithmen implementiert:
