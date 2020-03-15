@@ -8,7 +8,6 @@ import random as rd
 
 PRIMARY_COLOR = "#2a6fbe"  # blue
 SECONDARY_COLOR = "#ac1207"  # red
-TERTIARY_COLOR = "#dddd37"  # yellow
 LAST_MERGE_COLOR = "#7f2d97"  # purple
 FINAL_COLOR = "#08a110"  # green
 ARRAY_SIZE = 100
