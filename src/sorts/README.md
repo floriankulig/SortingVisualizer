@@ -12,7 +12,7 @@ In diesem Sorting-Visualizer sind die bekanntesten Sortieralgorithmen implementi
 
 ### Mergesort
 
-- hat eine Big O (Performance) Notation von O(n log n)
+- hat eine Big O (Performance) Notation von O(n log n).
 - ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
 - weitere [Informationen](https://de.wikipedia.org/wiki/Mergesort)
 
@@ -58,7 +58,7 @@ while j <= end_idx:
 
 ### Quicksort
 
-- hat eine durchschnittliche Big O (Performance) Notation von O(n log n), im schlechtesten Fall aber O(n²)
+- hat eine durchschnittliche Big O (Performance) Notation von O(n log n), im schlechtesten Fall aber O(n²).
 - ist ein Sortieralgorithmus der auf _divide and conquer_ -also teilen und herrschen- basiert. Das heißt, dass die zu sortierende Zahlenfolge immer wieder geteilt wird. So kann höhere Leistung garantiert werden.
 - weitere [Informationen](https://de.wikipedia.org/wiki/Quicksort)
 
@@ -106,6 +106,28 @@ array[start_idx], array[high] = array[high], array[start_idx]
 return high
 ```
 
+### Bubblesort
+
+- hat eine Big O (Performance) Notation von O(n²)
+- ist ein Sortieralgorithmus der _vergleichsbasiert_ ist -also werden immer zwei Elemente miteinander verglichen.
+- weitere [Informationen](https://de.wikipedia.org/wiki/Bubblesort)
+
+#### Im Code:
+
+- Wir iterieren einmal durch die gesamte Liste; pro Iteration wird nochmals durch die List iteriert, bis zu den schon sortierten Elementen.
+
+```python
+for i in range(len(array)):
+    for j in range(len(array)-1-i):
+```
+
+-Wir vergleichen zwei nebeneinander stehende Werte. Falls der Linke Wert größer als der Rechte ist tauschen wir beider miteinander. So erreichen wir, dass das größte Element am Ende der Liste steht.
+
+```python
+    if array[j] > array[j+1]:
+        array[j], array[j+1] = array[j+1], array[j]
+```
+
 ## ENG
 
 This project includes visualizations of the most well known algorithms:
@@ -116,8 +138,8 @@ This project includes visualizations of the most well known algorithms:
 
 ### Mergesort
 
-- has a Big O Notation of O(n log n)
-- is a sorting algorithm that is based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance
+- has a Big O Notation of O(n log n).
+- is a sorting algorithm that is based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance.
 - more [information](https://en.wikipedia.org/wiki/Mergesort)
 
 #### In the code:
@@ -162,8 +184,8 @@ while j <= end_idx:
 
 ### Quicksort
 
-- has an average Big O Notation of O(n log n), in the worst case it is O(n²)
-- is a sorting algorithm based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance
+- has an average Big O Notation of O(n log n), in the worst case it is O(n²).
+- is a sorting algorithm based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance.
 - weitere [Informationen](https://en.wikipedia.org/wiki/Quicksort)
 
 #### In the code:
@@ -176,7 +198,7 @@ quick_sort(array, start_idx, part_idx-1)
 quick_sort(array, part_idx+1, end_idx)
 ```
 
-- In this version of the quicksort, we pick the first element of the given array as the pivot
+- In this version of the quicksort, we pick the first element of the given array as the pivot.
 
 ```python
 pivot = array[start_idx]
@@ -208,4 +230,26 @@ if low < high:
 ```python
 array[start_idx], array[high] = array[high], array[start_idx]
 return high
+```
+
+### Bubblesort
+
+- has a Big O Notation of O(n²).
+- is a sorting algorithm based _comparing_ two elements.
+- weitere [Informationen](https://de.wikipedia.org/wiki/Bubblesort)
+
+#### In the code:
+
+- We iterate through the entire Array; per iteration we iterate again through the whole Array until we reach the already sorted elements.
+
+```python
+for i in range(len(array)):
+    for j in range(len(array)-1-i):
+```
+
+- We compare the two values next to eachother. If the left value in the Array is bigger than the right one, we swap them. Like this, we achieve that the last element in the Array is sorted.
+
+```python
+    if array[j] > array[j+1]:
+        array[j], array[j+1] = array[j+1], array[j]
 ```
