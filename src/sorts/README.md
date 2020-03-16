@@ -6,9 +6,9 @@
 
 In diesem Sorting-Visualizer sind die bekanntesten Sortieralgorithmen implementiert:
 
-1. Mergesort
-2. Quicksort
-3. Bubblesort
+1. [Mergesort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#mergesort)
+2. [Quicksort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#quicksort)
+3. [Bubblesort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#bubblesort)
 
 ### Mergesort
 
@@ -132,9 +132,9 @@ for i in range(len(array)):
 
 This project includes visualizations of the most well known algorithms:
 
-1. Mergesort
-2. Quicksort
-3. Bubblesort
+1. [Mergesort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#mergesort-1)
+2. [Quicksort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#quicksort-1)
+3. [Bubblesort](https://github.com/floriankulig/SortingVisualizer/tree/master/src/sorts#bubblesort-1)
 
 ### Mergesort
 
