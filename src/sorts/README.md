@@ -186,7 +186,7 @@ while j <= end_idx:
 
 - has an average Big O Notation of O(n log n), in the worst case it is O(n²).
 - is a sorting algorithm based on the _divide and conquer_ principle, which means that the array of numbers to sort will be divided into smaller sub-arrays. This guarantees high performance.
-- weitere [Informationen](https://en.wikipedia.org/wiki/Quicksort)
+- more [information](https://en.wikipedia.org/wiki/Quicksort)
 
 #### In the code:
 
@@ -236,7 +236,7 @@ return high
 
 - has a Big O Notation of O(n²).
 - is a sorting algorithm based _comparing_ two elements.
-- weitere [Informationen](https://de.wikipedia.org/wiki/Bubblesort)
+- more [information](https://en.wikipedia.org/wiki/Bubblesort)
 
 #### In the code:
 
@@ -250,6 +250,6 @@ for i in range(len(array)):
 - We compare the two values next to eachother. If the left value in the Array is bigger than the right one, we swap them. Like this, we achieve that the last element in the Array is sorted.
 
 ```python
-    if array[j] > array[j+1]:
-        array[j], array[j+1] = array[j+1], array[j]
+if array[j] > array[j+1]:
+    array[j], array[j+1] = array[j+1], array[j]
 ```
