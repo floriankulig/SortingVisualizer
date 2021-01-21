@@ -6,7 +6,7 @@ Dieses Python-Programm dient zur Veranschaulichung der bekanntesten Sortier-Algo
 Beim Ausführen des Programms erscheint ein kleines Fenster in dem man einen der Sortieralgorithmen auswählen kann.
 
 ### Windows
-Sie können das Programm durch Ausführen der "main.exe"Datei starten.
+Sie können das Programm durch Ausführen der "main.exe"-Datei starten.
 
 ### Alle Plattformen
 Auch durch Ausführen der 'main.py"-Datei kann das Programm gestartet werden.
