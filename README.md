@@ -1,5 +1,7 @@
 # SortingVisualizer
 
+<image src="SortVisMock.png" style="width: 100%"/>
+
 ## DE
 
 Dieses Python-Programm dient zur Veranschaulichung der bekanntesten Sortier-Algorithmen.
